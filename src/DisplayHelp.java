@@ -8,17 +8,17 @@ public class DisplayHelp
     {
         // add help command
 
-        System.out.println("jean");
-        System.out.println("louis");
-        System.out.print("");
-        System.out.print("");
-        System.out.print("");
-        System.out.print("");
-        System.out.print("");
-        System.out.print("");
-        System.out.print("");
-        System.out.print("");
-        System.out.print("");
+        print("jean");
+        print("louis");
+        print("");
+        print("");
+        print("");
+        print("");
+        print("");
+        print("");
+        print("");
+        print("");
+        print("");
 
 
 
