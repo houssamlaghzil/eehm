@@ -1,4 +1,6 @@
-import java.util.Scanner;
+package com.company;
+
+import com.company.PlayerChoice;
 
 public class Meeh
 {

@@ -1,1 +1,1 @@
-Meeh
+com.company.Meeh

@@ -1,3 +1,5 @@
+package com.company;
+
 import java.util.Scanner;
 
 public class PlayerChoice
@@ -12,7 +14,7 @@ public class PlayerChoice
             if (command.equals("help")) // if player write help --> display help commands
 
             {
-                DisplayHelp.displayHelp(); // return class display with displayhelp function
+                Commands.displayHelp(); // return class display with displayhelp function
             }
 
             else
