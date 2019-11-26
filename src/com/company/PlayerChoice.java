@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class PlayerChoice
 {
-    public static String playerChoice() // creation playerChoice class
+    public static String playerChoice() // creation playerChoice method
     {
         Scanner sc = new Scanner(System.in); // scan playerchoice
         String command = sc.nextLine(); // return playerchoice
@@ -14,7 +14,7 @@ public class PlayerChoice
             if (command.equals("help")) // if player write help --> display help commands
 
             {
-                Commands.displayHelp(); // return class display with displayhelp function
+                Commands.displayHelp(); // return class display with displayhelp method
             }
 
             else
