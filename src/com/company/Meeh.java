@@ -2,11 +2,16 @@ package com.company;
 
 import java.util.Scanner;
 
-public class Meeh {
+public class Meeh
+
+{
+
+
 
     public static void main(String[] args)
     {
-        // Start and help/exit command
+
+        /* Starter Menu with starter phrase */
 
         print("|------------ MENU ------------|");
         print("|         1 - Create           |");
@@ -16,14 +21,14 @@ public class Meeh {
         print("|         5 - exit             |");
         print("|------------------------------|");
 
-        print("Application has started"); // display welcome message
-        print("Write any command"); // display "Write any command"
-        print("Type help for command description"); // display "Write any command"
-        Commands.playerChoice(); // shortcut
+        print("Application has started");              /* display Welcome message */
+        print("Write any command");                    /* display "Write any command" */
+        print("Type help for command description");    /* display "Type help for command description" */
+        Commands.playerChoice();                       /* shortcut */
 
     }
 
-    public static void print (Object o)     // raccourci pour le print
+    public static void print (Object o)     /* print shortcut method */
     {
         System.out.println(o);
     }

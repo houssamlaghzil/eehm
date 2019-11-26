@@ -80,17 +80,8 @@ public class Commands
     {
         Scanner sc = new Scanner(System.in);
         String Pseudo = sc.nextLine(); // return playerchoice
-
-        if (Pseudo.equals(1)) // if player write help --> display help commands
-        {
-            print("Entrez votre Pseudo");
-            String pseudo = sc.nextLine();
-            String resultat = pseudo;
-            //print ("Votre Pseudo est" + resultat);
-        }
-
-        return Pseudo;
-
+        print("Entrez votre Pseudo");
+        String  = sc.nextLine(); // return playerchoice
     }
 
     public static void delete() // creation delete method
