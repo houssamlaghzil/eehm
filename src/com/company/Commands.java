@@ -5,46 +5,37 @@ import java.util.Scanner;
 public class Commands
 
 {
-    public final static String CMDcreate = "1";
-    public final static String CMDdelete = "2";
-    public final static String CMD = "3";
-    public final static String CMD2 = "4";
-    public final static String CMDexit = "5";
-
-
+    public static String CMDcreate = "1";
+    public static String CMDdelete = "2";
+    public static String CMD = "3";
+    public static String CMDhelp = "4";
+    public static String CMDexit = "5";
 
 
     public static void playerChoice() // creation playerChoice method
 
     {
-        boolean A=true;
         Scanner sc = new Scanner(System.in); // scan playerchoice
+        String commands = sc.nextLine(); // return playerchoice
 
-        while(A==true)
-        {
-            String commands = sc.nextLine(); // return playerchoice
-
-            if (commands.equals("help")) {
-                commands = "3";
+        while (!commands.equals("5")) {
+            if (commands.equals("1")) {
+                Commands.create();
+            } else if (commands.equals("2")) {
+                Commands.delete();
+            } else if (commands.equals("4")) {
+                Commands.displayHelp();
+            } else {
+                print("try again");
+                Commands.displayHelp();
             }
-
-            switch (commands) {
-
-                case CMDcreate: {
-                    Commands.create();
-                }
-                case CMDdelete: {
-                    Commands.delete();
-                }
-                case CMD: {
-                    Commands.displayHelp();
-                }
-                case CMDexit: {
-                    Commands.exit(A);
-                }
-            }
+            commands = sc.nextLine();
         }
+        print("Bye !");
+
     }
+
+
 
         /*String command = sc.nextLine(); // return playerchoice
 
@@ -73,13 +64,13 @@ public class Commands
     public static void displayHelp() // creation displayHelp method
 
     {
-        // add help command list
-        print("|------------ MENU ------------|");
-        print("|         1 - Create           |");
-        print("|         2 - Delete           |");
-        print("|         3 - ....             |");
-        print("|         4 - ....             |");
-        print("|         5 - exit             |");
+        // add description command
+        print("|------------ HELP ------------|");
+        print("| 1 - Create a new character   |");
+        print("|   2 - Delete a character     |");
+        print("|     3 - ....                 |");
+        print("|   4 - Display commands       |");
+        print("| 5 - Leave the game           |");
         print("|------------------------------|");
 
     }
@@ -90,7 +81,7 @@ public class Commands
         Scanner sc = new Scanner(System.in);
         String Pseudo = sc.nextLine(); // return playerchoice
 
-        if (Pseudo.equals("create")) // if player write help --> display help commands
+        if (Pseudo.equals(1)) // if player write help --> display help commands
         {
             print("Entrez votre Pseudo");
             String pseudo = sc.nextLine();
@@ -108,12 +99,11 @@ public class Commands
 
     }
 
-    public static boolean exit(boolean A) // creation exit method
+    public static void exit() // creation exit method
 
     {
         //while (!command.equals("exit")) // if player write exit --> exit app
         print("see you again"); // display "see you again"
-        return A =false;
     }
 
 
