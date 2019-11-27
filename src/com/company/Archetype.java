@@ -7,7 +7,6 @@ public class Archetype
     private int damage;
     private int Init;
 
-    //private final static String Archetype ="/Users/souksou/Desktop/coding-factory/Archetype";
 
     public Archetype(String name , int HP , int damage , int Init){
         this.name = name;

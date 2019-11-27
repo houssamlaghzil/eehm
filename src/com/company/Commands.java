@@ -71,26 +71,27 @@ public class Commands
 
     public static void create() // creation create method
     {
-        print("Entrez le nom");
+        print("Nickname");
         Scanner sc1 = new Scanner(System.in);
-        String nameUser = sc1.nextLine(); // return playerchoice
+        String nameUser = sc1.nextLine(); // return Nickname
 
-        print("Entrez les hp");
+        print("HealthPoints");
         Scanner sc2= new Scanner(System.in);
-        String hpUser = sc2.nextLine(); // return playerchoice
+        String hpUser = sc2.nextLine(); // return HealthPoints
 
-        print("Entrez le damage");
+        print("Damage");
         Scanner sc3 = new Scanner(System.in);
-        String damageUser = sc3.nextLine(); // return playerchoice
+        String damageUser = sc3.nextLine(); // return Damage
 
-        print("Entrez le initiative");
+        print("Init");
         Scanner sc4 = new Scanner(System.in);
-        String initUser = sc4.nextLine(); // return playerchoice
+        String initUser = sc4.nextLine(); // return Init
 
-        print(nameUser);
-        print(hpUser);
-        print(damageUser);
-        print(initUser);
+        print("Nickname : " + nameUser);
+        print("HealthPoints : " + hpUser);
+        print("Damage : " + damageUser);
+        print("Init : " + initUser);
+
 
     }
 
