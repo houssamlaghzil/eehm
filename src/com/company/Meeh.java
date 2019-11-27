@@ -1,5 +1,8 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Meeh
 
 {
@@ -9,9 +12,13 @@ public class Meeh
     public static void main(String[] args)
     {
 
+        List<Archetype> heroes= new ArrayList<Archetype>();
         String nameUser = "ygyugjygj";
         Archetype a = new Archetype( nameUser ,  0 ,  0 ,  0);
         System.out.println(a);
+
+
+
         /* Starter Menu with starter phrase */
 
 
