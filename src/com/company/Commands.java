@@ -9,8 +9,6 @@ public class Commands
     public static String CMD = "3";
     public static String CMDhelp = "4";
     public static String CMDexit = "5";
-    private static Object String;
-
 
     public static void playerChoice() // creation playerChoice method
     {
@@ -73,10 +71,27 @@ public class Commands
 
     public static void create() // creation create method
     {
-        Scanner sc = new Scanner(System.in);
-        String Pseudo = sc.nextLine(); // return playerchoice
-        print("Entrez votre Pseudo");
-        String = sc.nextLine(); // return playerchoice
+        print("Entrez le nom");
+        Scanner sc1 = new Scanner(System.in);
+        String nameUser = sc1.nextLine(); // return playerchoice
+
+        print("Entrez les hp");
+        Scanner sc2= new Scanner(System.in);
+        String hpUser = sc2.nextLine(); // return playerchoice
+
+        print("Entrez le damage");
+        Scanner sc3 = new Scanner(System.in);
+        String damageUser = sc3.nextLine(); // return playerchoice
+
+        print("Entrez le initiative");
+        Scanner sc4 = new Scanner(System.in);
+        String initUser = sc4.nextLine(); // return playerchoice
+
+        print(nameUser);
+        print(hpUser);
+        print(damageUser);
+        print(initUser);
+
     }
 
     public static void delete() // creation delete method
