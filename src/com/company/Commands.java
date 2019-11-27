@@ -3,17 +3,16 @@ package com.company;
 import java.util.Scanner;
 
 public class Commands
-
 {
     public static String CMDcreate = "1";
     public static String CMDdelete = "2";
     public static String CMD = "3";
     public static String CMDhelp = "4";
     public static String CMDexit = "5";
+    private static Object String;
 
 
     public static void playerChoice() // creation playerChoice method
-
     {
         Scanner sc = new Scanner(System.in); // scan playerchoice
         String commands = sc.nextLine(); // return playerchoice
@@ -34,9 +33,6 @@ public class Commands
         print("Bye !");
 
     }
-
-
-
         /*String command = sc.nextLine(); // return playerchoice
 
         while (!command.equals("exit")) // if player write exit --> exit app
@@ -75,13 +71,12 @@ public class Commands
 
     }
 
-    public static String create() // creation create method
-
+    public static void create() // creation create method
     {
         Scanner sc = new Scanner(System.in);
         String Pseudo = sc.nextLine(); // return playerchoice
         print("Entrez votre Pseudo");
-        String  = sc.nextLine(); // return playerchoice
+        String = sc.nextLine(); // return playerchoice
     }
 
     public static void delete() // creation delete method

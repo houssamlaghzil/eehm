@@ -1,7 +1,5 @@
 package com.company;
 
-import java.util.Scanner;
-
 public class Meeh
 
 {
@@ -11,7 +9,11 @@ public class Meeh
     public static void main(String[] args)
     {
 
+        String nameUser = "ygyugjygj";
+        Archetype a = new Archetype( nameUser ,  0 ,  0 ,  0);
+        System.out.println(a);
         /* Starter Menu with starter phrase */
+
 
         print("|------------ MENU ------------|");
         print("|         1 - Create           |");
