@@ -31,6 +31,10 @@ public class Commands
                 }
                 else if (commands.equals("0")){
                     Commands.create(heroes);
+
+                }
+                else if (commands.equals("2")){
+                    Commands.createWizard(heroes);
                 }
             } else if (commands.equals("0")) {
                 Commands.fight(heroes);
@@ -147,6 +151,7 @@ public class Commands
                     print ( " Nickname : " + char2.getName());
                     print ( " Points de vie actuelle : " + char2.getHP());
                 }
+
                else
                 {
                     break;
@@ -277,11 +282,36 @@ public class Commands
 
     }
 
+    public static void createWizard(List<Wizard> heroes) //
+    {
+        print("Nickname");
+        Scanner sc1 = new Scanner(System.in);
+        String nameUser = sc1.nextLine(); // return Nickname
 
+        print("HealthPoints");
+        Scanner sc2 = new Scanner(System.in);
+        int hpUser = sc2.nextInt(); // return HealthPoints
 
+        print("Damage");
+        Scanner sc3 = new Scanner(System.in);
+        int damageUser = sc3.nextInt(); // return Damage
 
+        print("Init");
+        Scanner sc4 = new Scanner(System.in);
+        int initUser = sc4.nextInt(); // return Init
 
+        print("Magic damage");
+        Scanner sc5 = new Scanner(System.in);
+        int Magic = sc5.nextInt(); // return Init
 
+        print("Nickname : " + nameUser);
+        print("HealthPoints : " + hpUser);
+        print("Damage : " + damageUser);
+        print("Init : " + initUser);
+        print("Magic Dammage : " + Magic);
 
+        Wizard char1 = new Wizard(nameUser, hpUser, damageUser, initUser, Magic);
+        heroes.add(char1);
+    }
 
 }

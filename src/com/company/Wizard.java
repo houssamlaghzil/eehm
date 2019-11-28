@@ -2,20 +2,24 @@ package com.company;
 
 public class Wizard extends Archetype {
 
-    public void hurt(int receivedDmg)    /** Get damageTaken of the current user */
+    public int getDamage()
     {
-        receivedDmg = receivedDmg - this.Shield;
+        int getDamage= super.getDamage() + this.Magic;
+        this.Magic = this.Magic/2;
+        return getDamage;
 
-
-        super.hurt(receivedDmg);
     }
 
 
-    private int Shield;
+    private int Magic;
 
 
-    public Wizard(String name, int HP, int damage, int Init, int Shield) {
+    public Wizard(String name, int HP, int damage, int Init, int Magic) {
         super(name, HP, damage, Init);
-        this.Shield = Shield;
+        this.Magic = Magic;
     }
+    public int getMagic(){
+        return this.Magic;
+    }
+
 }
