@@ -19,7 +19,7 @@ public class Meeh
 
 
 
-        /* Starter Menu with starter phrase */
+        /** Starter Menu with starter phrase */
 
 
         print("|------------ MENU ------------|");
@@ -32,25 +32,15 @@ public class Meeh
         print("|         6 - heroes           |");
         print("|------------------------------|");
 
-        print("Application has started");              /* display Welcome message */
-        print("Write any command");                    /* display "Write any command" */
-        print("Type help for command description");    /* display "Type help for command description" */
-        Commands.playerChoice(heroes);                       /* shortcut */
+        print("Application has started");              /** display Welcome message */
+        print("Write any command");                    /** display "Write any command" */
+        print("Type help for command description");    /** display "Type help for command description" */
+        Commands.playerChoice(heroes);                       /** shortcut */
 
     }
 
-    public static void print (Object o)     /* print shortcut method */
+    public static void print (Object o)     /** print shortcut method */
     {
         System.out.println(o);
     }
 }
-
-
-
-
-
-
-
-
-
-
