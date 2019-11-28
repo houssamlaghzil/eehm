@@ -6,7 +6,7 @@ public class Wizard extends Archetype {
     {
 
         this.Magic = this.Magic/2;
-        int getDamage= super.getDamage()+ this.Magic;
+        int getDamage= super.getDamage() + this.Magic;
 
         return getDamage;
 
