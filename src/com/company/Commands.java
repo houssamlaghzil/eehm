@@ -13,10 +13,10 @@ public class Commands
     public static String CMDexit = "5";
     public static String CMDheroesid = "6";
 
-    public static void playerChoice(List <Archetype> heroes) // creation playerChoice method
+    public static void playerChoice(List <Archetype> heroes) /**creation playerChoice method*/
     {
-        Scanner sc = new Scanner(System.in); // scan playerchoice
-        String commands = sc.nextLine(); // return playerchoice
+        Scanner sc = new Scanner(System.in); /** scan playerchoice*/
+        String commands = sc.nextLine(); /** return playerchoice*/
 
         while (!commands.equals("5")) {
             if (commands.equals("1")) {
@@ -64,10 +64,10 @@ public class Commands
         //return command; // return command for main class
 
 
-    public static void displayHelp() // creation displayHelp method
+    public static void displayHelp() /**creation displayHelp method*/
 
     {
-        // add description command
+        /** add description command*/
         print("|------------ HELP ------------|");
         print("| 0 - Starting Fight           |");
         print("|   1 - Add new character      |");
@@ -82,16 +82,16 @@ public class Commands
 
 
 
-    public static void fight(List<Archetype> myfight) // creation fight method
+    public static void fight(List<Archetype> myfight) /**creation fight method*/
     {
         Scanner id = new Scanner(System.in);
         print("Choose the ID of the first Heroes");
-        int firstheroes = id.nextInt(); // return ID first heroes
+        int firstheroes = id.nextInt(); /** return ID first heroes*/
         Archetype char1 =  myfight.get(firstheroes);
 
         Scanner id2 = new Scanner(System.in);
         print("Choose the ID of the second Heroes");
-        int secondheroes = id2.nextInt(); // return ID second heroes
+        int secondheroes = id2.nextInt(); /** return ID second heroes*/
         Archetype char2 = myfight.get(secondheroes);
 
         while (char1.getHP() > 0 && char2.getHP() > 0)
@@ -134,7 +134,7 @@ public class Commands
                     print ( "\n Attaquant : " + char1.getName() );
                     print ( " Dégats infligés " + char1.getDamage());
                     print ( " Nickname : " + char2.getName());
-                    print ( " Points de vie actuelle : " + char2.getHP());
+                    print ( " Points de vie actuels : " + char2.getHP());
                 }
                else
                 {
