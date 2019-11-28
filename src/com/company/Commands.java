@@ -13,14 +13,25 @@ public class Commands
     public static String CMDexit = "5";
     public static String CMDheroesid = "6";
 
-    public static void playerChoice(List <Archetype> heroes) /**creation playerChoice method*/
+
+    public static void playerChoice(List heroes) // creation playerChoice method
     {
-        Scanner sc = new Scanner(System.in); /** scan playerchoice*/
-        String commands = sc.nextLine(); /** return playerchoice*/
+        Scanner sc = new Scanner(System.in); // scan playerchoice
+        String commands = sc.nextLine(); // return playerchoice
 
         while (!commands.equals("5")) {
             if (commands.equals("1")) {
-                Commands.create(heroes);
+
+
+                System.out.println("What did u want");
+                System.out.println("O= Default 1= Warrior  2=Wizard  3=Rogue");
+                commands = sc.nextLine();
+                if(commands.equals("1")){
+                    Commands.createwarrior(heroes);
+                }
+                else if (commands.equals("0")){
+                    Commands.create(heroes);
+                }
             } else if (commands.equals("0")) {
                 Commands.fight(heroes);
             } else if (commands.equals("2")) {
@@ -64,10 +75,10 @@ public class Commands
         //return command; // return command for main class
 
 
-    public static void displayHelp() /**creation displayHelp method*/
+    public static void displayHelp() // creation displayHelp method
 
     {
-        /** add description command*/
+        // add description command
         print("|------------ HELP ------------|");
         print("| 0 - Starting Fight           |");
         print("|   1 - Add new character      |");
@@ -82,16 +93,16 @@ public class Commands
 
 
 
-    public static void fight(List<Archetype> myfight) /**creation fight method*/
+    public static void fight(List<Archetype> myfight) // creation fight method
     {
         Scanner id = new Scanner(System.in);
         print("Choose the ID of the first Heroes");
-        int firstheroes = id.nextInt(); /** return ID first heroes*/
+        int firstheroes = id.nextInt(); // return ID first heroes
         Archetype char1 =  myfight.get(firstheroes);
 
         Scanner id2 = new Scanner(System.in);
         print("Choose the ID of the second Heroes");
-        int secondheroes = id2.nextInt(); /** return ID second heroes*/
+        int secondheroes = id2.nextInt(); // return ID second heroes
         Archetype char2 = myfight.get(secondheroes);
 
         while (char1.getHP() > 0 && char2.getHP() > 0)
@@ -134,7 +145,7 @@ public class Commands
                     print ( "\n Attaquant : " + char1.getName() );
                     print ( " Dégats infligés " + char1.getDamage());
                     print ( " Nickname : " + char2.getName());
-                    print ( " Points de vie actuels : " + char2.getHP());
+                    print ( " Points de vie actuelle : " + char2.getHP());
                 }
                else
                 {
@@ -148,39 +159,8 @@ public class Commands
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        public static void create(List<Archetype> heroes) // creation create method
-    {
+    public static void create(List<Archetype> heroes) // creation create method
+        {
         print("Nickname");
         Scanner sc1 = new Scanner(System.in);
         String nameUser = sc1.nextLine(); // return Nickname
@@ -262,5 +242,46 @@ public class Commands
     {
         System.out.println(o);
     }
+
+    public static void createwarrior(List<Warrior> heroes) // creation create method
+    {
+        print("Nickname");
+        Scanner sc1 = new Scanner(System.in);
+        String nameUser = sc1.nextLine(); // return Nickname
+
+        print("HealthPoints");
+        Scanner sc2= new Scanner(System.in);
+        int hpUser = sc2.nextInt(); // return HealthPoints
+
+        print("Damage");
+        Scanner sc3 = new Scanner(System.in);
+        int damageUser = sc3.nextInt(); // return Damage
+
+        print("Init");
+        Scanner sc4 = new Scanner(System.in);
+        int initUser = sc4.nextInt(); // return Init
+
+        print("Shield");
+        Scanner sc5 = new Scanner(System.in);
+        int Shield = sc5.nextInt(); // return Init
+
+        print("Nickname : " + nameUser);
+        print("HealthPoints : " + hpUser);
+        print("Damage : " + damageUser);
+        print("Init : " + initUser);
+        print("Shield : " + Shield);
+
+        Warrior char1 = new Warrior(nameUser, hpUser , damageUser , initUser,Shield);
+        heroes.add(char1);
+
+
+    }
+
+
+
+
+
+
+
 
 }

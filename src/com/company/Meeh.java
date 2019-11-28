@@ -13,7 +13,7 @@ public class Meeh
     public static void main(String[] args)
     {
 
-        List<Archetype> heroes= new ArrayList<Archetype>();
+        List<Archetype> heroes= new ArrayList();
 
         //String nameUser = "test";
         //Archetype a = new Archetype( nameUser ,  0 ,  0 ,  0);
