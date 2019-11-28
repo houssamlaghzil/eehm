@@ -4,8 +4,10 @@ public class Wizard extends Archetype {
 
     public int getDamage()
     {
-        int getDamage= super.getDamage() + this.Magic;
+
         this.Magic = this.Magic/2;
+        int getDamage= super.getDamage()+ this.Magic;
+
         return getDamage;
 
     }
@@ -16,7 +18,7 @@ public class Wizard extends Archetype {
 
     public Wizard(String name, int HP, int damage, int Init, int Magic) {
         super(name, HP, damage, Init);
-        this.Magic = Magic;
+        this.Magic = 2*Magic;
     }
     public int getMagic(){
         return this.Magic;

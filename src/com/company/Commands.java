@@ -35,6 +35,10 @@ public class Commands
                 }
                 else if (commands.equals("2")){
                     Commands.createWizard(heroes);
+
+                }
+                else if (commands.equals("3")){
+                    Commands.createRogue(heroes);
                 }
             } else if (commands.equals("0")) {
                 Commands.fight(heroes);
@@ -113,18 +117,20 @@ public class Commands
         {
             if(char1.getInit() > char2.getInit())
             {
+               int hpprecedent =char2.getHP();
                 char2.hurt(char1.getDamage());
                 print ( "\n Attaquant : " + char1.getName() );
-                print ( " Dégats infligés " + char1.getDamage());
+                print ( " Dégats infligés " + (hpprecedent -char2.getHP()));
                 print ( "\n Défenseur : " + char2.getName() );
                 print ( " Points de vie actuelle : " + char2.getHP());
 
                 if (char1.getHP() > 0 && char2.getHP() > 0)
                 {
+                    hpprecedent =char1.getHP();
                     char1.hurt(char2.getDamage());
 
                     print ( "\n Attaquant : " + char2.getName() );
-                    print ( " Dégats infligés " + char2.getDamage());
+                    print ( " Dégats infligés " + (hpprecedent -char1.getHP()));
                     print ( "\n Nickname : " + char1.getName());
                     print ( " Points de vie actuelle : " + char1.getHP());
                 }
@@ -135,19 +141,21 @@ public class Commands
             }
             else
             {
+                int hpprecedent =char1.getHP();
                 char1.hurt(char2.getDamage());
 
                 print ( " Attaquant : " + char2.getName() );
-                print ( " Dégats infligés " + char2.getDamage());
+                print ( " Dégats infligés " + (hpprecedent -char1.getHP()));
                 print( " Nickname : " + char1.getName() );
                 print (" Points de vie actuelle : " + char1.getHP());
 
                 if (char1.getHP() > 0 && char2.getHP() > 0)
                 {
+                    hpprecedent =char2.getHP();
                     char2.hurt(char1.getDamage());
 
                     print ( "\n Attaquant : " + char1.getName() );
-                    print ( " Dégats infligés " + char1.getDamage());
+                    print ( " Dégats infligés " + (hpprecedent -char2.getHP()));
                     print ( " Nickname : " + char2.getName());
                     print ( " Points de vie actuelle : " + char2.getHP());
                 }
@@ -310,8 +318,44 @@ public class Commands
         print("Init : " + initUser);
         print("Magic Dammage : " + Magic);
 
-        Wizard char1 = new Wizard(nameUser, hpUser, damageUser, initUser, Magic);
+        Wizard char1 = new Wizard(nameUser, hpUser, damageUser, initUser,Magic);
         heroes.add(char1);
     }
 
+    public static void createRogue(List<Rogue> heroes) //
+    {
+        print("Nickname");
+        Scanner sc1 = new Scanner(System.in);
+        String nameUser = sc1.nextLine(); // return Nickname
+
+        print("HealthPoints");
+        Scanner sc2 = new Scanner(System.in);
+        int hpUser = sc2.nextInt(); // return HealthPoints
+
+        print("Damage");
+        Scanner sc3 = new Scanner(System.in);
+        int damageUser = sc3.nextInt(); // return Damage
+
+        print("Init");
+        Scanner sc4 = new Scanner(System.in);
+        int initUser = sc4.nextInt(); // return Init
+
+        print("Dodge");
+        Scanner sc5 = new Scanner(System.in);
+        int Dodge = sc5.nextInt(); // return Init
+
+        print("Critic");
+        Scanner sc6 = new Scanner(System.in);
+        int Critic = sc5.nextInt(); // return Init
+
+        print("Nickname : " + nameUser);
+        print("HealthPoints : " + hpUser);
+        print("Damage : " + damageUser);
+        print("Init : " + initUser);
+        print("Dodge : " + Dodge);
+        print("Critic : " + Critic);
+
+        Rogue char1 = new Rogue(nameUser, hpUser, damageUser, initUser,Dodge,Critic);
+        heroes.add(char1);
+    }
 }
