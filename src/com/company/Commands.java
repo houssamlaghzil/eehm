@@ -1,25 +1,34 @@
 package com.company;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Commands
 {
+    public static String CMDfight = "0";
     public static String CMDcreate = "1";
     public static String CMDdelete = "2";
-    public static String CMD = "3";
+    public static String CMDstatsheroes= "3";
     public static String CMDhelp = "4";
     public static String CMDexit = "5";
+    public static String CMDheroesid = "6";
 
-    public static void playerChoice() // creation playerChoice method
+    public static void playerChoice(List <Archetype> heroes) // creation playerChoice method
     {
         Scanner sc = new Scanner(System.in); // scan playerchoice
         String commands = sc.nextLine(); // return playerchoice
 
         while (!commands.equals("5")) {
             if (commands.equals("1")) {
-                Commands.create();
+                Commands.create(heroes);
+            } else if (commands.equals("0")) {
+                Commands.fight(heroes);
             } else if (commands.equals("2")) {
                 Commands.delete();
+            } else if (commands.equals("3")) {
+                Commands.statsHeroes(heroes);
+            } else if (commands.equals("6")) {
+                Commands.heroesList(heroes);
             } else if (commands.equals("4")) {
                 Commands.displayHelp();
             } else {
@@ -60,16 +69,117 @@ public class Commands
     {
         // add description command
         print("|------------ HELP ------------|");
-        print("| 1 - Create a new character   |");
-        print("|   2 - Delete a character     |");
-        print("|     3 - ....                 |");
-        print("|   4 - Display commands       |");
-        print("| 5 - Leave the game           |");
+        print("| 0 - Starting Fight           |");
+        print("|   1 - Add new character      |");
+        print("|     2 - Delete a character   |");
+        print("|       3 - Show heroes stats  |");
+        print("|     4 - Display commands     |");
+        print("|   5 - Leave the game         |");
+        print("| 6 - Show all heroes ID       |");
         print("|------------------------------|");
 
     }
 
-    public static void create() // creation create method
+
+
+    public static void fight(List<Archetype> myfight) // creation fight method
+    {
+        Scanner id = new Scanner(System.in);
+        print("Choose the ID of the first Heroes");
+        int firstheroes = id.nextInt(); // return ID first heroes
+        Archetype char1 =  myfight.get(firstheroes);
+
+        Scanner id2 = new Scanner(System.in);
+        print("Choose the ID of the second Heroes");
+        int secondheroes = id2.nextInt(); // return ID second heroes
+        Archetype char2 = myfight.get(secondheroes);
+
+        while (char1.getHP() > 0 && char2.getHP() > 0)
+        {
+            if(char1.getInit() > char2.getInit())
+            {
+                char2.hurt(char1.getDamage());
+                print ( "\n Attaquant : " + char1.getName() );
+                print ( " Dégats infligés " + char1.getDamage());
+                print ( "\n Défenseur : " + char2.getName() );
+                print ( " Points de vie actuelle : " + char2.getHP());
+
+                if (char1.getHP() > 0 && char2.getHP() > 0)
+                {
+                    char1.hurt(char2.getDamage());
+
+                    print ( "\n Attaquant : " + char2.getName() );
+                    print ( " Dégats infligés " + char2.getDamage());
+                    print ( "\n Nickname : " + char1.getName());
+                    print ( " Points de vie actuelle : " + char1.getHP());
+                }
+                else
+                {
+                   break;
+                }
+            }
+            else
+            {
+                char1.hurt(char2.getDamage());
+
+                print ( " Attaquant : " + char2.getName() );
+                print ( " Dégats infligés " + char2.getDamage());
+                print( " Nickname : " + char1.getName() );
+                print (" Points de vie actuelle : " + char1.getHP());
+
+                if (char1.getHP() > 0 && char2.getHP() > 0)
+                {
+                    char2.hurt(char1.getDamage());
+
+                    print ( "\n Attaquant : " + char1.getName() );
+                    print ( " Dégats infligés " + char1.getDamage());
+                    print ( " Nickname : " + char2.getName());
+                    print ( " Points de vie actuelle : " + char2.getHP());
+                }
+               else
+                {
+                    break;
+                }
+            }
+
+        }
+        print("Fight is finish because one of the two heroes died");
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public static void create(List<Archetype> heroes) // creation create method
     {
         print("Nickname");
         Scanner sc1 = new Scanner(System.in);
@@ -77,29 +187,67 @@ public class Commands
 
         print("HealthPoints");
         Scanner sc2= new Scanner(System.in);
-        String hpUser = sc2.nextLine(); // return HealthPoints
+        int hpUser = sc2.nextInt(); // return HealthPoints
 
         print("Damage");
         Scanner sc3 = new Scanner(System.in);
-        String damageUser = sc3.nextLine(); // return Damage
+        int damageUser = sc3.nextInt(); // return Damage
 
         print("Init");
         Scanner sc4 = new Scanner(System.in);
-        String initUser = sc4.nextLine(); // return Init
+        int initUser = sc4.nextInt(); // return Init
 
         print("Nickname : " + nameUser);
         print("HealthPoints : " + hpUser);
         print("Damage : " + damageUser);
         print("Init : " + initUser);
 
+        Archetype char1 = new Archetype(nameUser, hpUser , damageUser , initUser);
+        heroes.add(char1);
+
 
     }
+
+    public static void statsHeroes(List <Archetype> myHeroList) // creation statsHeroes method
+    {
+        Scanner sc1 = new Scanner(System.in);
+        print("Choissisez l'ID de votre combattant");
+        int statsmyheroes = sc1.nextInt(); // return Nickname
+
+        if (statsmyheroes >= myHeroList.size() || statsmyheroes < 0){
+            print ("This heroes does not exist");
+            statsmyheroes = sc1.nextInt(); // return Nickname
+        }
+        Archetype myChar = myHeroList.get(statsmyheroes);
+        print(myChar);
+
+    }
+
+
+
+    public static void heroesList(List <Archetype> myList) // creation heroes method
+    {
+        for ( int i = 0; i < myList.size(); i++)
+        {
+            Archetype char1 = (Archetype) myList.get(i);
+            print("id : " + i + char1);
+        }
+        if (myList.size() == 0){
+
+            print("Any character created :");
+    }
+
+
+    }
+
 
     public static void delete() // creation delete method
 
     {
 
     }
+
+
 
     public static void exit() // creation exit method
 

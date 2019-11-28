@@ -36,9 +36,13 @@ public class Archetype
         return this.Init;
     }
 
-    public int damageTaken()    /** Get damageTaken of the current user */
+    public void hurt(int receivedDmg)    /** Get damageTaken of the current user */
     {
-        return this.damageTaken();
+        if (receivedDmg < 0)
+        {
+            receivedDmg = 0;
+        }
+        this.HP = this.HP - receivedDmg;
     }
 
     public String toString ()
