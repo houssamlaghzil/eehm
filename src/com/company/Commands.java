@@ -122,6 +122,8 @@ public class Commands
                 int hpprecedent =char2.getHP();
                 char2.hurt(damage);
 
+                /** FIGHTING MENU */
+
                 print ( "\n  ---------------------------------  ");
                 print ( "  | Attacker : " + char1.getName() );
                 print ( "  | Damage inflicted on " + char2.getName() + " : " + (hpprecedent -char2.getHP()));
@@ -153,7 +155,7 @@ public class Commands
             }
             else
             {
-                damage = char2.getDamage();
+                damage = char2.getDamage(); /** GET DAMAGE */
                 int hpprecedent =char1.getHP();
                 char1.hurt(damage);
 
@@ -188,15 +190,15 @@ public class Commands
             }
 
         }
-        print( "\n  Fight is finish because one of the two heroes died \n");
+        print( "\n  Fight is finish because one of the two heroes died \n"); /** ENDING MESSAGE */
         if (char1.getHP()>char2.getHP()){
             print(  "\033[33m  "  + char1.getName()+"\033[0m is the Best!  "  );
         }
         else if (char2.getHP()>char1.getHP()){
-        print(  "\033[33m  "  + char2.getName()+"\033[0m is the Best !  "  );
+        print(  "\033[33m  "  + char2.getName()+"\033[0m is the Best !  "  ); /** SHOW THE WINNER */
     }
         else {
-            print(  "  Equality !  ");
+            print(  "  Equality !  "); /** IF DRAW */
         }
     }
 
