@@ -24,4 +24,10 @@ public class Wizard extends Archetype {
         return this.Magic;
     }
 
+    public String toString ()
+    {
+        String result = super.toString()+ "| magic : " + this.Magic;    /** SHOW ALL STATS */
+        return result;
+    }
+
 }

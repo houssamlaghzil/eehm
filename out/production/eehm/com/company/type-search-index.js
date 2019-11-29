@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"com.company","l":"Archetype"},{"p":"com.company","l":"Commands"},{"p":"com.company","l":"Meeh"},{"p":"com.company","l":"Warrior"},{"p":"com.company","l":"Wizard"}]
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"com.company","l":"Archetype"},{"p":"com.company","l":"Commands"},{"p":"com.company","l":"Meeh"},{"p":"com.company","l":"Rogue"},{"p":"com.company","l":"Warrior"},{"p":"com.company","l":"Wizard"}]

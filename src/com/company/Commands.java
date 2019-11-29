@@ -43,7 +43,7 @@ public class Commands
             } else if (commands.equals("0")) {
                 Commands.fight(heroes);
             } else if (commands.equals("2")) {
-                Commands.delete();
+                Commands.delete(heroes);
             } else if (commands.equals("3")) {
                 Commands.statsHeroes(heroes);
             } else if (commands.equals("6")) {
@@ -113,26 +113,38 @@ public class Commands
         int secondheroes = id2.nextInt(); /** return ID second heroes*/
         Archetype char2 = myfight.get(secondheroes);
 
+        int damage;
         while (char1.getHP() > 0 && char2.getHP() > 0)
         {
             if(char1.getInit() > char2.getInit())
             {
-               int hpprecedent =char2.getHP();
-                char2.hurt(char1.getDamage());
-                print ( "\n Attaquant : " + char1.getName() );
-                print ( " Dégats infligés " + (hpprecedent -char2.getHP()));
-                print ( "\n Défenseur : " + char2.getName() );
-                print ( " Points de vie actuelle : " + char2.getHP());
+                damage = char1.getDamage();
+                int hpprecedent =char2.getHP();
+                char2.hurt(damage);
+
+                print ( "\n  ---------------------------------  ");
+                print ( "  | Attacker : " + char1.getName() );
+                print ( "  | Damage inflicted on " + char2.getName() + " : " + (hpprecedent -char2.getHP()));
+                print ( "  | Defender : " + char2.getName() );
+                print ( "  | Damage suffered : " + damage);
+                print ( "  | Current HP : " + char2.getHP());
+                print ( "  --------------------------------- " );
+
 
                 if (char1.getHP() > 0 && char2.getHP() > 0)
                 {
+                    damage = char2.getDamage();
                     hpprecedent =char1.getHP();
-                    char1.hurt(char2.getDamage());
+                    char1.hurt(damage);
 
-                    print ( "\n Attaquant : " + char2.getName() );
-                    print ( " Dégats infligés " + (hpprecedent -char1.getHP()));
-                    print ( "\n Nickname : " + char1.getName());
-                    print ( " Points de vie actuelle : " + char1.getHP());
+                    print ( "\n  ---------------------------------  ");
+                    print ( "  | Attacker : " + char2.getName() );
+                    print ( "  | Damage inflicted on " + char1.getName() + " : " + (hpprecedent -char1.getHP()));
+                    print ( "  | Defender : " + char1.getName());
+                    print ( "  | Damage suffered : " + damage);
+                    print ( "  | Current HP : " + char1.getHP());
+                    print ( "  --------------------------------- " );
+
                 }
                 else
                 {
@@ -141,23 +153,32 @@ public class Commands
             }
             else
             {
+                damage = char2.getDamage();
                 int hpprecedent =char1.getHP();
-                char1.hurt(char2.getDamage());
+                char1.hurt(damage);
 
-                print ( " Attaquant : " + char2.getName() );
-                print ( " Dégats infligés " + (hpprecedent -char1.getHP()));
-                print( " Nickname : " + char1.getName() );
-                print (" Points de vie actuelle : " + char1.getHP());
+                    print ( "\n  ---------------------------------  ");
+                    print ( "  | Attacker : " + char2.getName());
+                    print ( "  | Damage inflicted on " + char1.getName() + " : " + (hpprecedent -char1.getHP()));
+                    print ( "  | Defender : " + char1.getName());
+                    print ( "  | Damage suffered : " + damage);
+                    print ( "  | Current HP : " + char1.getHP());
+                    print ( "  --------------------------------- " );
+
 
                 if (char1.getHP() > 0 && char2.getHP() > 0)
                 {
+                    damage = char1.getDamage();
                     hpprecedent =char2.getHP();
-                    char2.hurt(char1.getDamage());
+                    char2.hurt(damage);
 
-                    print ( "\n Attaquant : " + char1.getName() );
-                    print ( " Dégats infligés " + (hpprecedent -char2.getHP()));
-                    print ( " Nickname : " + char2.getName());
-                    print ( " Points de vie actuelle : " + char2.getHP());
+                    print ( "\n  --------------------------------- ");
+                    print ( "  | Attacker : " + char1.getName() );
+                    print ( "  | Damage inflicted on " + char2.getName() + " : " + (hpprecedent -char2.getHP()));
+                    print ( "  | Defender : " + char2.getName());
+                    print(  "  | Damage suffered : " + damage);
+                    print ( "  | Current HP : " + char2.getHP());
+                    print ( "  --------------------------------- " );
                 }
 
                else
@@ -167,7 +188,16 @@ public class Commands
             }
 
         }
-        print("Fight is finish because one of the two heroes died");
+        print( "\n  Fight is finish because one of the two heroes died \n");
+        if (char1.getHP()>char2.getHP()){
+            print(  "\033[33m  "  + char1.getName()+"\033[0m is the Best!  "  );
+        }
+        else if (char2.getHP()>char1.getHP()){
+        print(  "\033[33m  "  + char2.getName()+"\033[0m is the Best !  "  );
+    }
+        else {
+            print(  "  Equality !  ");
+        }
     }
 
 
@@ -218,7 +248,7 @@ public class Commands
 
 
 
-    public static void heroesList(List <Archetype> myList) /** creation heroes method*/
+    public static void heroesList(List myList) /** creation heroes method*/
     {
         for ( int i = 0; i < myList.size(); i++)
         {
@@ -234,9 +264,23 @@ public class Commands
     }
 
 
-    public static void delete() /** creation delete method*/
+    public static void delete(List myList) /** creation delete method*/
 
     {
+        int idP = 0;
+        print("choice id");
+        Scanner sc = new Scanner(System.in);
+        idP = sc.nextInt();
+        print("sure ?");
+        Scanner sc1 = new Scanner(System.in);
+        String sure = sc1.nextLine();
+        if (sure.equals("yes")){
+            myList.remove(idP);
+            print ( " Heroes deleted, Enjoy ! " );
+        }
+        else {
+            print("don't understand");
+        }
 
     }
 
@@ -251,7 +295,7 @@ public class Commands
 
 
 
-    public static void print(Object o)     /** raccourci pour le print*/
+    public static void print(Object o)     /** print shortcut */
     {
         System.out.println(o);
     }

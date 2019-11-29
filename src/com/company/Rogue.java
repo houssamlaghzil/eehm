@@ -51,4 +51,10 @@ public class Rogue extends Archetype {
     public int getCritic(){
         return this.Critic;
     }
+    public String toString ()
+    {
+        String result = super.toString()+ "| Critic : " + this.Critic+ "| Dodge : " + this.Dodge;    /** SHOW ALL STATS */
+        return result;
+    }
+
 }

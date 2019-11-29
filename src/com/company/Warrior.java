@@ -20,7 +20,11 @@ public class Warrior extends Archetype {
         this.Shield=Shield;
     }
 
-
+    public String toString ()
+    {
+        String result = super.toString()+ "| Shield : " + this.Shield;    /** SHOW ALL STATS */
+        return result;
+    }
 
 
 

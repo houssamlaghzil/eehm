@@ -6,6 +6,7 @@ public class Archetype
     private int HP;
     private int damage;
     private int Init;
+    private int maxHp;
 
 
     public Archetype(String name , int HP , int damage , int Init){
